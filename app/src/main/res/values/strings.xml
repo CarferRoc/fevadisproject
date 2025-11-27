@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FevadisProject</string>
+    <string name="title_activity_registro">Registro</string>
 </resources>

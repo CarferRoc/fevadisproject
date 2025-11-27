@@ -6,8 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F6F7"
-    tools:context=".MainActivity">
+    tools:context=".Registro">
 
+    <!-- Tarjeta centrada -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
         android:layout_width="0dp"
@@ -63,7 +64,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-
             <!-- ======================== -->
             <!--  TABS + INDICADOR MOVIL  -->
             <!-- ======================== -->
@@ -107,17 +107,15 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="10dp"
                     android:text="Registrarse"
-                    android:textColor="#000"
-                    android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="14sp"
+                    android:textColor="#000"
+                    android:padding="10dp"
                     app:layout_constraintStart_toEndOf="@id/tabLogin"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <!-- Label DNI -->
             <TextView
@@ -137,49 +135,23 @@
                 android:layout_marginTop="4dp"
                 android:hint="12345678A"
                 android:padding="12dp"
-                android:inputType="text"
-                android:maxLength="9"
                 android:background="@drawable/edittext_background"
                 app:layout_constraintTop_toBottomOf="@id/dniLabel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Campo Contraseña -->
-            <TextView
-                android:id="@+id/passLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/dniInput"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/passInput"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/edittext_background"
-                android:hint=""
-                android:inputType="textPassword"
-                android:padding="12dp"
-                app:layout_constraintTop_toBottomOf="@id/passLabel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!-- Botón Iniciar Sesión -->
+            <!-- Botón VERIFICAR DNI -->
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnVerificarDni"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
-                android:text="Iniciar Sesion"
+                android:text="Verificar DNI"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/button_green"
-                app:layout_constraintTop_toBottomOf="@id/passInput"
+                app:layout_constraintTop_toBottomOf="@id/dniInput"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

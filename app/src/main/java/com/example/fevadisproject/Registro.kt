@@ -2,41 +2,38 @@ package com.example.fevadisproject
 
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+import android.widget.EditText
+import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.example.fevadisproject.Pages.EventsActivity
-import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class Registro : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_registro)
 
-        // Referencias UI
+        // Referencias
         val tabLogin = findViewById<TextView>(R.id.tabLogin)
         val tabRegister = findViewById<TextView>(R.id.tabRegister)
         val tabIndicator = findViewById<View>(R.id.tabIndicator)
-
         val dniInput = findViewById<EditText>(R.id.dniInput)
-        val passInput = findViewById<EditText>(R.id.passInput)
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val btnVerificar = findViewById<Button>(R.id.btnVerificarDni)
 
-        // ======================
-        //   ANIMACIÓN DE TABS
-        // ======================
+        // Esperamos a que cargue el layout
         tabLogin.post {
 
             val indicatorWidth = tabLogin.width
             tabIndicator.layoutParams.width = indicatorWidth
-            tabIndicator.translationX = 0f
 
+            // Registro seleccionado por defecto → mover indicador
+            tabIndicator.translationX = indicatorWidth.toFloat()
+
+            // Animación del rectángulo deslizante
             fun moveIndicator(toX: Float) {
                 ObjectAnimator.ofFloat(tabIndicator, "translationX", toX).apply {
                     duration = 250
@@ -44,28 +41,37 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            // Cambio de colores de texto
+            @RequiresApi(Build.VERSION_CODES.M)
             fun activateLogin() {
                 tabLogin.setTextColor(resources.getColor(android.R.color.black, theme))
                 tabRegister.setTextColor(resources.getColor(android.R.color.darker_gray, theme))
             }
 
+            @RequiresApi(Build.VERSION_CODES.M)
             fun activateRegister() {
                 tabRegister.setTextColor(resources.getColor(android.R.color.black, theme))
                 tabLogin.setTextColor(resources.getColor(android.R.color.darker_gray, theme))
             }
 
-            activateLogin()
+            // Estado inicial
+            activateRegister()
 
-            tabRegister.setOnClickListener {
-                moveIndicator(indicatorWidth.toFloat())
-                activateRegister()
-                startActivity(Intent(this, Registro::class.java))
-            }
-
+            // --- CLICK EN LOGIN → volver a MainActivity ---
             tabLogin.setOnClickListener {
                 moveIndicator(0f)
                 activateLogin()
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
+
+            // --- CLICK EN REGISTRO (ya estamos aquí) ---
+            tabRegister.setOnClickListener {
+                moveIndicator(indicatorWidth.toFloat())
+                activateRegister()
+            }
+
         }
     }
 }

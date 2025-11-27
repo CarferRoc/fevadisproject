@@ -12,6 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FevadisProject">
         <activity
+            android:name=".Pages.EventsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginRepository"
+            android:exported="false" />
+        <activity
+            android:name=".Registro"
+            android:exported="false"
+            android:label="@string/title_activity_registro"
+            android:theme="@style/Theme.FevadisProject" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
