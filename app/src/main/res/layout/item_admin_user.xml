@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="12dp">
+
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtDni"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtPuntos"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtCorreo"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="#555"/>
+
+    <TextView
+        android:id="@+id/txtNacimiento"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textColor="#555"/>
+
+    <Spinner
+        android:id="@+id/spinnerRol"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_role_bg"/>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginStart="10dp"/>
+</LinearLayout>

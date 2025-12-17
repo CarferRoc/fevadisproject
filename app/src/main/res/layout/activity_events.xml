@@ -1,10 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pages.EventsActivity">
+    android:background="#F3F6F7">
+
+    <!-- TOP HEADER -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/logo_fevadis" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actividades"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+    <!-- FILTROS DE CATEGORÍAS -->
+    <HorizontalScrollView
+        android:id="@+id/filterScroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/filterContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <!-- Categoría: Todas -->
+            <TextView
+                android:id="@+id/filterTodas"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingHorizontal="18dp"
+                android:gravity="center"
+                android:text="Todas"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:background="@drawable/filter_selected"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/filterOcio"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingHorizontal="18dp"
+                android:gravity="center"
+                android:text="Ocio"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:background="@drawable/filter_unselected"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/filterCampamentos"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingHorizontal="18dp"
+                android:gravity="center"
+                android:text="Campamentos"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:background="@drawable/filter_unselected"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/filterFormaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingHorizontal="18dp"
+                android:gravity="center"
+                android:text="Formaciones"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:background="@drawable/filter_unselected"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/filterTalleres"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingHorizontal="18dp"
+                android:gravity="center"
+                android:text="Talleres"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:background="@drawable/filter_unselected" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- RECYCLER VIEW -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerActividadesUsuario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/filterScroll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

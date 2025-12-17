@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+
+        <domain includeSubdomains="true">172.16.1.13</domain>    <!-- Campus camara-->
+        <domain includeSubdomains="true">172.20.10.3</domain> <!-- Movil carlos-->
+
+        <domain includeSubdomains="true">192.168.1.134</domain> <!-- Casa Digi-->
+        <domain includeSubdomains="true">192.168.3.129</domain> <!-- Casa Carman-->
+        <domain includeSubdomains="true">192.168.1.42</domain> <!-- Magma Loungue -->
+
+    </domain-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

@@ -11,176 +11,354 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="32dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:cardPreventCornerOverlap="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <!-- Logo -->
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/logo_fevadis"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!-- Título -->
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FEVADIS APP"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintTop_toBottomOf="@id/logo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!-- Subtítulo -->
-            <TextView
-                android:id="@+id/subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No pierdas la oportunidad de ayudar a\nquien lo necesita!"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-
-            <!-- ======================== -->
-            <!--  TABS + INDICADOR MOVIL  -->
-            <!-- ======================== -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/tabsContainer"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/subtitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp">
 
-                <!-- Rectángulo deslizante -->
-                <View
-                    android:id="@+id/tabIndicator"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:background="#E5E5E5"
-                    android:translationX="0dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                <!-- Logo -->
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/logo_fevadis"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-
-                <!-- Iniciar sesión -->
-                <TextView
-                    android:id="@+id/tabLogin"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Iniciar Sesión"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:textColor="#000"
-                    android:padding="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tabRegister" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-                <!-- Registro -->
+                <!-- Título -->
                 <TextView
-                    android:id="@+id/tabRegister"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="Registrarse"
-                    android:textColor="#000"
-                    android:textSize="14sp"
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEVADIS APP"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tabLogin"
-                    tools:layout_editor_absoluteY="0dp" />
+                    android:textSize="20sp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Subtítulo -->
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No pierdas la oportunidad de ayudar a\nquien lo necesita!"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <!-- ======================== -->
+                <!--       TABS LOGIN/REG     -->
+                <!-- ======================== -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/tabsContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/subtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Indicador móvil -->
+                    <View
+                        android:id="@+id/tabIndicator"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="#E5E5E5"
+                        android:translationX="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <!-- Tab Login -->
+                    <TextView
+                        android:id="@+id/tabLogin"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Iniciar Sesión"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:padding="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tabRegister" />
+
+                    <!-- Tab Registro -->
+                    <TextView
+                        android:id="@+id/tabRegister"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Registrarse"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:padding="10dp"
+                        app:layout_constraintStart_toEndOf="@id/tabLogin"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <!-- ======================== -->
+                <!--       LOGIN LAYOUT       -->
+                <!-- ======================== -->
+                <LinearLayout
+                    android:id="@+id/layoutLogin"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tabsContainer">
+
+                    <!-- Label DNI -->
+                    <TextView
+                        android:id="@+id/dniLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DNI"
+                        android:layout_marginTop="20dp" />
+
+                    <!-- Campo DNI -->
+                    <EditText
+                        android:id="@+id/dniInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="12345678A"
+                        android:maxLength="9"
+                        android:padding="12dp"
+                        android:background="@drawable/edittext_background" />
+
+                    <!-- Label Contraseña -->
+                    <TextView
+                        android:id="@+id/passLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contraseña"
+                        android:layout_marginTop="20dp" />
+
+                    <!-- Campo Contraseña -->
+                    <EditText
+                        android:id="@+id/passInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:hint=""
+                        android:inputType="textPassword"
+                        android:padding="12dp"
+                        android:background="@drawable/edittext_background" />
+
+                    <!-- Botón Login -->
+                    <Button
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="24dp"
+                        android:text="Iniciar Sesion"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/button_green" />
+
+                </LinearLayout>
+
+
+
+
+                <!-- ====================================================== -->
+                <!--                REGISTER LAYOUT (OCULTO AL INICIO)      -->
+                <!-- ====================================================== -->
+                <LinearLayout
+                    android:id="@+id/layoutRegister"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tabsContainer">
+
+                    <!-- DNI -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DNI"
+                        android:layout_marginTop="20dp"/>
+
+                    <EditText
+                        android:id="@+id/dniRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:hint="12345678A"
+                        android:background="@drawable/edittext_background"
+                        android:maxLength="9"
+                        android:padding="12dp"/>
+
+                    <!-- Botón verificar -->
+                    <Button
+                        android:id="@+id/btnVerificarDni"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="18dp"
+                        android:text="Verificar DNI"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/button_green"/>
+
+                    <!-- ====================== -->
+                    <!-- POLÍTICA DE PRIVACIDAD  -->
+                    <!-- ====================== -->
+                    <LinearLayout
+                        android:id="@+id/layoutPolicy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#F5F5F5"
+                        android:padding="12dp"
+                        android:layout_marginTop="20dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:text="Política de Protección de Datos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:text="Al registrarte, aceptas que Fevadis almacene y procese tus datos personales conforme a la normativa de protección de datos vigente."
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:layout_marginTop="6dp"/>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/checkPolicy"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/check_off"/>
+
+                            <TextView
+                                android:layout_marginStart="10dp"
+                                android:text="Acepto la política de protección de datos"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <!-- ====================== -->
+                    <!--        FORMULARIO 1     -->
+                    <!-- ====================== -->
+                    <LinearLayout
+                        android:id="@+id/layoutExtra1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/nombreInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:hint="Nombre"
+                            android:background="@drawable/edittext_background"
+                            android:padding="12dp"/>
+
+                        <EditText
+                            android:id="@+id/apellidosInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="12dp"
+                            android:hint="Apellidos"
+                            android:background="@drawable/edittext_background"
+                            android:padding="12dp"/>
+
+                        <EditText
+                            android:id="@+id/nacimientoInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="12dp"
+                            android:hint="Fecha de nacimiento (AAAA-MM-DD)"
+                            android:background="@drawable/edittext_background"
+                            android:padding="12dp"/>
+                    </LinearLayout>
+
+
+                    <!-- ====================== -->
+                    <!--        FORMULARIO 2     -->
+                    <!-- ====================== -->
+                    <LinearLayout
+                        android:id="@+id/layoutExtra2"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/correoRegInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:hint="Correo electrónico"
+                            android:background="@drawable/edittext_background"
+                            android:padding="12dp"/>
+
+                        <EditText
+                            android:id="@+id/passRegInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="12dp"
+                            android:hint="Contraseña"
+                            android:inputType="textPassword"
+                            android:background="@drawable/edittext_background"
+                            android:padding="12dp"/>
+                    </LinearLayout>
+
+
+                    <!-- Botón Registrar -->
+                    <Button
+                        android:id="@+id/btnRegistrar"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="26dp"
+                        android:text="Registrarse"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/button_green"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
-
-            <!-- Label DNI -->
-            <TextView
-                android:id="@+id/dniLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DNI"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/tabsContainer"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <!-- Campo DNI -->
-            <EditText
-                android:id="@+id/dniInput"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="4dp"
-                android:hint="12345678A"
-                android:padding="12dp"
-                android:inputType="text"
-                android:maxLength="9"
-                android:background="@drawable/edittext_background"
-                app:layout_constraintTop_toBottomOf="@id/dniLabel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!-- Campo Contraseña -->
-            <TextView
-                android:id="@+id/passLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/dniInput"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/passInput"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/edittext_background"
-                android:hint=""
-                android:inputType="textPassword"
-                android:padding="12dp"
-                app:layout_constraintTop_toBottomOf="@id/passLabel"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!-- Botón Iniciar Sesión -->
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="24dp"
-                android:text="Iniciar Sesion"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/button_green"
-                app:layout_constraintTop_toBottomOf="@id/passInput"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
